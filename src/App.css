@@ -28,4 +28,23 @@ body {
   display: grid;
   gap: 16px;
 }
-.habit-card {}
+.habit-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid #d7dde5;
+  border-radius: 12px;
+  background: #ffffff;
+}
+
+.habit-card.is-completed {
+  border-color: #78b87a;
+  background: #f0fff2;
+
+}
+
+.habit-status {
+  font-weight: 700;
+}

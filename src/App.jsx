@@ -1,11 +1,21 @@
 import "./App.css";
 import HabitList from "./components/HabitList";
+import Panel from "./components/panel";
 import { initialHabits } from "./data/habits";
+
 
 export default function App() {
 	const completedCount = initialHabits.filter(
 		(habit) => habit.completed,
 	) .length;
+
+	function handleShowDetails(habitId) {
+	const habit = initialHabits.find((item) => item.id === habitId);
+
+	if (habit) {
+		window.alert(`${habit.title} - Meta: ${habit.goal}`);
+	}
+}	
 
 	return (
 		<main className="app">
@@ -16,8 +26,17 @@ export default function App() {
 					{completedCount} de {initialHabits.length} hábitos concluídos.
 				</p>
 			</header>
-
-	<HabitList habits={initialHabits} />
-	</main>
+		
+			<Panel title="Hábitos de hoje">
+				<HabitList
+				habits={initialHabits}
+				onShowDetails={handleShowDetails}
+				/>
+			</Panel>
+		</main>
 	);
 }
+
+
+
+
