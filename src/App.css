@@ -1,7 +1,8 @@
 * {
   box-sizing: border-box;
 }
-h1, h2 {
+h1,
+h2 {
   color: black;
 }
 body {
@@ -42,9 +43,52 @@ body {
 .habit-card.is-completed {
   border-color: #78b87a;
   background: #f0fff2;
-
 }
 
 .habit-status {
+  font-weight: 700;
+}
+
+.panel {
+  overflow: hidden;
+  border: 1px solid #d7dde5;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.panel-header,
+.panel-content {
+  padding: 20px;
+}
+
+.panel-header {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.panel-header h2 {
+  margin: 0;
+}
+
+.habit-form {
+  display: grid;
+  gap: 16px;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font: inherit;
+}
+
+.form-error {
+  margin: 0;
+  color: #b42318;
   font-weight: 700;
 }

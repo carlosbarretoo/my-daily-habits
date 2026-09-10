@@ -1,18 +1,18 @@
 import HabitCard from "./HabitCard";
 
-export default function HabitList({ habits, onShowDetails }) {
-    if (habits.length === 0) {
-        return <p> Nenhum hábito cadastrado.</p>;
+export default function HabitList({ habits, onToggle }) {
+    if (HabitList.length === 0) {
+        return <p> Nenhum hábito cadastrado. </p>;
     }
-return (
-    <section className="habit-list" aria-label="Hábitos de hoje">
-        {habits.map((habit) => (
-            <HabitCard
-                key={habit.id}
+    return (
+        <section className="habit-list" aria-label="Hábitos de hoje">
+            {habits.map((habit) => (
+                <HabitCard
+                HabitCardkey={habit.id}
                 {...habit}
-                onShowDetails={onShowDetails}
+                onToggle={onToggle}
             />
-        ))}
-    </section>
-);
+            ))}
+        </section>
+    );
 }
