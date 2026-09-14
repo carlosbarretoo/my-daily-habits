@@ -1,3 +1,4 @@
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -33,7 +34,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #9ca3af;
-    --text-h: #f3f4f6;
+    --text-h: #04112c;
     --bg: #16171d;
     --border: #2e303a;
     --code-bg: #1f2028;
@@ -65,6 +66,7 @@ body {
   flex-direction: column;
   box-sizing: border-box;
 }
+
 
 h1,
 h2 {
@@ -109,5 +111,23 @@ code {
   padding: 4px 8px;
   background: var(--code-bg);
 }
+.panel {
+  overflow: hidden;
+  border: 1px solid #d7dde5;
+  border-radius: 16px;
+  background: #ffffff;
+}
 
+.panel-header,
+.panel-content {
+  padding: 20px;
+}
+
+.panel-header {
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.panel-header h2 {
+  margin: 0;
+}
 

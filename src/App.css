@@ -1,10 +1,7 @@
 * {
   box-sizing: border-box;
 }
-h1,
-h2 {
-  color: black;
-}
+ 
 body {
   margin: 0;
   min-width: 320px;
@@ -13,22 +10,27 @@ body {
   background: #f4f6f8;
   color: #1f2937;
 }
+
 .app {
   width: min(900px, 92%);
   margin: 0 auto;
   padding: 48px 0;
 }
+
 .hero {
   margin-bottom: 28px;
 }
+
 .eyebrow {
   font-weight: 700;
   letter-spacing: 0.12em;
 }
+
 .habit-list {
   display: grid;
   gap: 16px;
 }
+
 .habit-card {
   display: flex;
   align-items: center;
@@ -40,7 +42,7 @@ body {
   background: #ffffff;
 }
 
-.habit-card.is-completed {
+.habit-card.is-complete {
   border-color: #78b87a;
   background: #f0fff2;
 }
@@ -48,27 +50,6 @@ body {
 .habit-status {
   font-weight: 700;
 }
-
-.panel {
-  overflow: hidden;
-  border: 1px solid #d7dde5;
-  border-radius: 16px;
-  background: #ffffff;
-}
-
-.panel-header,
-.panel-content {
-  padding: 20px;
-}
-
-.panel-header {
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.panel-header h2 {
-  margin: 0;
-}
-
 .habit-form {
   display: grid;
   gap: 16px;
@@ -91,4 +72,32 @@ body {
   margin: 0;
   color: #b42318;
   font-weight: 700;
+}
+.habit-filter {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.habit-filter button {
+  padding: 6px 14px;
+  border: 1px solid #d7dde5;
+  border-radius: 20px;
+  background: #ffffff;
+  color: #1f2937;
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.habit-filter button:hover {
+  background: #f4f6f8;
+}
+
+.habit-filter button.active {
+  background: #1f2937;
+  color: #ffffff;
+  border-color: #1f2937;
 }

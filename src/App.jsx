@@ -1,47 +1,43 @@
-import { useState } from "react";
+import { useContext, useEffect } from "react";
 import "./App.css";
-import HabitList from "./components/HabitList";
-import Panel from "./components/panel";
-import { initialHabits } from "./data/habits";
 import HabitForm from "./components/HabitForm";
+import HabitList from "./components/HabitList";
+import Panel from "./components/Panel";
+import { HabitsContext } from "./context/HabitsContext";
 
 export default function App() {
-	const [habits, setHabits] = useState(initialHabits);
+  const habitsContext = useContext(HabitsContext);
 
-	const completedCount = habits.filter(
-		(habit) => habit.completed,
-	).length;
+  if (!habitsContext) {
+    throw new Error("App precisa estar dentro de HabitsProvider.");
+  }
 
-	function handleToggleHabit(habitId) {
-		setHabits((currentHabits) => 
-			currentHabits.map((habit) =>
-			habit.id === habitId
-				? {...habit, completed: !habit.completed }
-				: habit, 
-			),
-		);
-	}
-function handleAddHabit(newHabit) { 
-  setHabits((currentHabits) => [ 
-    ...currentHabits, 
-    newHabit, 
-  ]); 
-} 
-return (
-	<main className="app">
-		<header className="hero">
-			<p className="eyebrow">MY DAILY HABITS</p>
-			<h1>Pequenos hábitos, progresso visível.</h1>
-			<p>
-				{completedCount} de {habits.length} hábitos concluídos.
-			</p>
-		</header>
-	<Panel title="Novo hábito"> 
-  		<HabitForm onAddHabit={handleAddHabit} /> 
-	</Panel>
-	<Panel title="Hábitos de hoje">
-		<HabitList habits ={habits} onToggle={handleToggleHabit} />
-	</Panel>
-	</main>
-	);
+  const { habits, completedCount } = habitsContext;
+
+  useEffect(() => {
+    const previousTitle = document.title;
+    document.title = `${completedCount}/${habits.length} hábitos concluídos`;
+
+    return () => {
+      document.title = previousTitle;
+    };
+  }, [completedCount, habits.length]);
+
+  return (
+    <main className="app">
+      <header className="hero">
+        <p className="eyebrow">MY DAILY HABITS</p>
+        <h1>Progredir 1%, mas nunca regredir.</h1>
+        <p>{completedCount} de {habits.length} hábitos concluídos.</p>
+      </header>
+
+      <Panel title="Novo hábito">
+        <HabitForm />
+      </Panel>
+
+      <Panel title="Hábitos de hoje">
+        <HabitList />
+      </Panel>
+    </main>
+  );
 }

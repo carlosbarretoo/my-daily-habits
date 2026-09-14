@@ -3,9 +3,9 @@ export const initialHabits = [
     id: "water",
     title: "Beber água",
     goal: "8 copos",
-    completed: true,    
+    completed: true,
   },
-  {
+  { 
     id: "react-study",
     title: "Estudar React",
     goal: "30 minutos",
@@ -15,6 +15,6 @@ export const initialHabits = [
     id: "walk",
     title: "Caminhar",
     goal: "20 minutos",
-    completed: false,
-  }
-]
+    completed: true,
+  },
+ ];
